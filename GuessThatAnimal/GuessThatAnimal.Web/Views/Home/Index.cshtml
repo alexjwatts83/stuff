@@ -1,0 +1,38 @@
+﻿@model GuessThatAnimal.Web.Models.IndexViewModel 
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Guess The Animal</h1>
+        <h2>
+            How to play
+        </h2>
+        <ul>
+            <li>Pick an animal and keep that animal to yourself</li>
+            <li>When you click on Start Now, you will be asked a set of questions</li>
+            <li>Answer yes or no to these questions</li>
+            <li>At the end, the game will try to guess which animal you picked</li>
+        </ul>
+        <ul class="list-inline">
+            @foreach (var animal in Model.AllAnimals)
+            {
+                <li>
+                    @animal.Text
+                    <ul>
+                        @foreach (var att in animal.Attributes)
+                        {
+                            <li>
+                                @att.Text
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+        <p>
+            <a class="btn btn-lg btn-success" href="StartGame" role="button">Start Now</a>
+        </p>
+    </div>
+</div>
