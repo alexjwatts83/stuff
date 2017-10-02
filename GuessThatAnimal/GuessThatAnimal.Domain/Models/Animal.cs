@@ -10,13 +10,13 @@ namespace GuessThatAnimal.Domain.Models
     {
         int Id { get; set; }
         string Text { get; set; }
-        IList<Attribute> Attributes{ get; set; }
+        IList<IAttribute> Attributes{ get; set; }
     }
 
     public class Animal: IAnimal
     {
         public int Id { get; set; }
         public string Text { get; set; }
-        public IList<Attribute> Attributes { get; set; }
+        public IList<IAttribute> Attributes { get; set; }
     }
 }
