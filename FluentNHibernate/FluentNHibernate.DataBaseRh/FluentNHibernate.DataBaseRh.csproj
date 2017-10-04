@@ -80,6 +80,18 @@
   <ItemGroup>
     <Content Include="samples.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="db\alterDatabase\" />
+    <Folder Include="db\down\" />
+    <Folder Include="db\functions\" />
+    <Folder Include="db\indexes\" />
+    <Folder Include="db\permissions\" />
+    <Folder Include="db\restore\" />
+    <Folder Include="db\runFirstAfterUp\" />
+    <Folder Include="db\sprocs\" />
+    <Folder Include="db\up\" />
+    <Folder Include="db\views\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if "$(ConfigurationName)" == "Debug" "$(MSBuildBinPath)\msbuild.exe" "$(TargetDir)DBDeploy_MSBuild.proj" /p:Configuration=$(ConfigurationName) /p:BuildType=$(BuildType)</PostBuildEvent>

@@ -6,15 +6,15 @@
 
   <PropertyGroup>
     <Environment>LOCAL</Environment>
-    <DBServer>(local)</DBServer>
-    <DBName>YOURDATABASENAME</DBName>
-    <DBConnectionString>INSERTCONNECTIONSTRING</DBConnectionString>
+    <DBServer>.\SQL2014</DBServer>
+    <DBName>FluentNHibernateDb</DBName>
+    <DBConnectionString>Data Source=.\SQL2014;Initial Catalog=FluentNHibernateDb;Integrated Security=True;</DBConnectionString>
     <DBSqlFilesPath>..\..\db</DBSqlFilesPath>
     <RepositoryPath>http://tellmewherethisis.com/svn/</RepositoryPath>
     <VersionFile>..\_BuildInfo.xml</VersionFile>
     <VersionFileXPath>//buildInfo/version</VersionFileXPath>
     <DBRestore>false</DBRestore>
-    <DBRestorePath>\\tell\me\where\YOURDATABASENAME.bak</DBRestorePath>
+    <DBRestorePath>..\..\db\restore\EpiServer.bak</DBRestorePath>
     <DBRestoreOptions>INSERTRESTOREOPTIONS</DBRestoreOptions>
     <DBCreateDatabaseCustomScript></DBCreateDatabaseCustomScript>
     <DBDrop>false</DBDrop>
@@ -23,7 +23,7 @@
 
 
   <Target Name="ApplyDatabaseChanges">
-    <!--<Message Text="Running RoundhousE on $(DBServer) ($(DBName)). Looking in $(DBSqlFilesPath) for sql scripts." />-->
+    <Message Text="Running RoundhousE on $(DBServer) ($(DBName)). Looking in $(DBSqlFilesPath) for sql scripts." />
     <Roundhouse
         ServerName="$(DBServer)"
         DatabaseName="$(DBName)"
@@ -43,7 +43,7 @@
         SprocsFolderName="sprocs"
         IndexesFolderName="indexes"
         PermissionsFolderName="permissions"
-        SchemaName="RoundhousE"
+        SchemaName="ChangeTracking"
         VersionTableName="Version"
         ScriptsRunTableName="ScriptsRun"
         ScriptsRunErrorsTableName="ScriptsRunErrors"
@@ -57,7 +57,7 @@
         DoNotCreateDatabase="false"
         OutputPath="C:\RoundhousE_runs"
         WarnOnOneTimeScriptChanges="false"
-        Silent="false"
+        Silent="$(Silent)"
         DatabaseType="roundhouse.databases.sqlserver.SqlServerDatabase, roundhouse"
         WithTransaction="false"
         RecoveryMode="Full"

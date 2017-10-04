@@ -12,7 +12,6 @@ using NHibernate.Cfg;
 using NHibernate.Dialect;
 using NHibernate.Driver;
 using NHibernate.Tool.hbm2ddl;
-using FluentNHibernate.Domain.Models;
 
 namespace FluentNHibernate.Console
 {
@@ -30,23 +29,17 @@ namespace FluentNHibernate.Console
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    var question = new Question()
-                    {
-                        Text = "How much would could a wood chuck chuck?"
-                    };
-                    //foreach (var splitTest in splitTestSet.SplitTests)
-                    //{
-                    //    ////session.Save(splitTest.Weighting);
-                    //    //session.Save(splitTest.FlowA);
-                    //    //session.Save(splitTest.FlowB);
-                    //    //session.Save(splitTest.FlowC);
-                    //    //foreach (var splitTestCharacteristic in splitTest.Characteristics)
-                    //    //{
-                    //    //    session.Save(splitTestCharacteristic);
-                    //    //}
-                    //    //session.Save(splitTest);
-                    //}
-                    session.Save(question);
+                    session.Save(MockData.q1);
+                    session.Save(MockData.q2);
+                    session.Save(MockData.q3);
+                    session.Save(MockData.q4);
+                    session.Save(MockData.q5);
+
+                    session.Save(MockData.c1);
+                    session.Save(MockData.c2);
+                    session.Save(MockData.c3);
+                    session.Save(MockData.c4);
+                    session.Save(MockData.c5);
 
                     transaction.Commit();
                     System.Console.WriteLine("transaction committed");
