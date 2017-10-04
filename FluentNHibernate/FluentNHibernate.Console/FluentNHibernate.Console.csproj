@@ -57,7 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MockData.cs" />
+    <Compile Include="NHIbernate\Maps\AnimalMap.cs" />
     <Compile Include="NHIbernate\Maps\CharacteristicMap.cs" />
+    <Compile Include="NHIbernate\Maps\QuestionCharacteristicLinkMap.cs" />
     <Compile Include="NHIbernate\Maps\QuestionMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

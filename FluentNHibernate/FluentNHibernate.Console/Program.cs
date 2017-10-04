@@ -41,7 +41,18 @@ namespace FluentNHibernate.Console
                     session.Save(MockData.c4);
                     session.Save(MockData.c5);
 
+                    session.Save(MockData.qc1);
+                    session.Save(MockData.qc2);
+                    session.Save(MockData.qc3);
+                    session.Save(MockData.qc4);
+                    session.Save(MockData.qc5);
+
+                    session.Save(MockData.a1);
+                    session.Save(MockData.a2);
+                    session.Save(MockData.a3);
+
                     transaction.Commit();
+
                     System.Console.WriteLine("transaction committed");
                     System.Console.ReadLine();
                 }
